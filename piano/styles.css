@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #e3f2fd;
+  padding: 0 10px;
+}
+
+.wrapper header {
+  color: #b2b2b2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header h2 {
+  font-size: 1.6rem;
+}
+
+header .column {
+  display: flex;
+  align-items: center;
+}
+
+header .column span {
+  font-weight: 500;
+  margin-right: 15px;
+  font-size: 1.2rem;
+}
+
+.volume-slider input {
+  accent-color: #fff;
+  outline: none;
+}
+
+.wrapper {
+  border-radius: 20px;
+  padding: 35px 40px;
+  background: #141414;
+}
+.piano-keys {
+  display: flex;
+  margin-top: 40px;
+}
+
+.piano-keys .key {
+  list-style: none;
+  user-select: none;
+  color: #a2a2a2;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.piano-keys .white {
+  width: 70px;
+  height: 230px;
+  border-radius: 8px;
+  border: 1px solid #000;
+  background: linear-gradient(#fff 96%, #eee 4%);
+}
+
+.piano-keys .white.active {
+  /*when its pressed*/
+  box-shadow: inset -5px 5px 20px, rgba(0, 0, 0, 0.2);
+  background: linear-gradient(to bottom, #fff 0%, #eee 100%);
+}
+
+.piano-keys .black {
+  width: 45px;
+  height: 140px;
+  z-index: 2;
+  margin: 0 -22px 0 -22px; /*make the keys shorter from bottom*/
+  border-radius: 0 0 5px 5px;
+  background: linear-gradient(#333, #000);
+}
+
+.piano-keys .black.active {
+  /*when its pressed*/
+  box-shadow: inset -5px 5px 10px, rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to bottom, #000, #434343);
+}
+
+.keys-checkbox input::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5px;
+
+  background: #8c8c8c;
+  height: 20px;
+  width: 20px;
+  border-radius: inherit;
+  transform: translateY(-50%);
+  transition: all 0.3s ease; /* move the ball and make it white*/
+}
+
+.keys-checkbox input:checked::before {
+  left: 35px;
+  background: #fff;
+}
+.keys-checkbox input {
+  width: 60px;
+  height: 30px;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  background: #4b4b4b;
+}
+
+.piano-keys span {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.15rem;
+}
+
+.piano-keys .key.hide span {
+  display: none;
+}
+
+@media screen and (max-width: 615px) {
+  .piano-keys .key:nth-child(13),
+  .piano-keys .key:nth-child(14),
+  .piano-keys .key:nth-child(15),
+  .piano-keys .key:nth-child(16),
+  .piano-keys .key :nth-child(17) {
+    display: none;
+  }
+  .piano-keys .white {
+    width: 50px;
+  }
+}
