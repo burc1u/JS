@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  padding: 0 35px;
+  justify-content: center;
+  min-height: 100vh;
+  background: #343f4f;
+}
+.wrapper {
+  display: flex;
+  max-width: 1200px;
+  position: relative;
+}
+
+.wrapper i {
+  top: 50%;
+  position: absolute;
+  height: 46px;
+  width: 46px;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.2rem;
+  line-height: 46px; /*puts the < in the middle of box*/
+  background: #fff;
+  transform: translateY(-50%); /*to middle of img*/
+  transition: transform 0.1s linear;
+}
+
+.wrapper i:hover {
+  background: #f2f2f2;
+}
+
+.wrapper i:first-child {
+  left: -23px;
+  display: none;
+}
+
+.wrapper i:last-child {
+  right: -23px;
+}
+
+.wrapper .carousel {
+  font-size: 0px; /*remove small space between img*/
+  cursor: pointer;
+  scroll-behavior: smooth;
+  overflow: hidden; /*no scrollbar*/
+  white-space: nowrap;
+}
+
+.carousel img {
+  height: 340px;
+  object-fit: cover;
+  user-select: none;
+  margin-left: 14px; /*add space between img*/
+  width: calc(100% / 3); /*3 img per slide*/
+}
+
+.carousel.dragging {
+  cursor: grab;
+  scroll-behavior: auto;
+}
+
+.wrapper i:active {
+  transform: translateY(-50%) scale(0.9);
+}
+
+.carousel.dragging img {
+  pointer-events: none;
+}
+
+.carousel img:first-child {
+  margin-left: 0px; /*no margin between first img and screen side */
+}
+
+@media screen and(max-width:900px) {
+  .carousel img {
+    width: calc(100% / 2);
+  }
+}
+
+@media screen and(max-width:550px) {
+  .carousel img {
+    width: 100%;
+  }
+}

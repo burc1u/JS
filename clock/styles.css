@@ -1,0 +1,170 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background: linear-gradient(
+    to right,
+    hsl(200, 100%, 50%),
+    hsl(175, 100%, 50%)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden /*removes scroll bar*/;
+}
+
+.clock {
+  width: 300px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border: 2px solid black;
+
+  position: relative;
+}
+
+/*! why is not working !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!111 */
+.number span {
+  display: inline-block;
+  transform: rotate(-1deg * var(--rotation));
+  /* transform: rotate(-30deg); */
+}
+
+.clock .number {
+  --rotation: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+
+  transform: rotate(
+    var(--rotation)
+  ); /* each number will have a given rotation*/
+  font-size: 1.5rem;
+}
+
+.clock .number1 span {
+  transform: rotate(-30deg);
+}
+
+.clock .number2 span {
+  transform: rotate(-60deg);
+}
+.clock .number3 span {
+  transform: rotate(-90deg);
+}
+
+.clock .number4 span {
+  transform: rotate(-120deg);
+}
+
+.clock .number5 span {
+  transform: rotate(-150deg);
+}
+.clock .number6 span {
+  transform: rotate(-180deg);
+}
+
+.clock .number7 span {
+  transform: rotate(-210deg);
+}
+
+.clock .number8 span {
+  transform: rotate(-240deg);
+}
+
+.clock .number9 span {
+  transform: rotate(-270deg);
+}
+.clock .number10 span {
+  transform: rotate(-300deg);
+}
+
+.clock .number11 span {
+  transform: rotate(-330deg);
+}
+
+.clock .number1 {
+  --rotation: 30deg;
+}
+.clock .number2 {
+  --rotation: 60deg;
+}
+.clock .number3 {
+  --rotation: 90deg;
+}
+.clock .number4 {
+  --rotation: 120deg;
+}
+.clock .number5 {
+  --rotation: 150deg;
+}
+.clock .number6 {
+  --rotation: 180deg;
+}
+.clock .number7 {
+  --rotation: 210deg;
+}
+.clock .number8 {
+  --rotation: 240deg;
+}
+.clock .number9 {
+  --rotation: 270deg;
+}
+.clock .number10 {
+  --rotation: 300deg;
+}
+.clock .number11 {
+  --rotation: 330deg;
+}
+/*12 is by default 360*/
+
+.clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+
+  border: 1px solid white;
+  border-top-left-radius: 10px; /*curve the tip of the hand*/
+  border-top-right-radius: 10px; /*curve the tip of the hand*/
+  transform-origin: bottom; /*rotate the hand from the bottom aka the center of the clock*/
+  z-index: 10; /*put the hand over the number*/
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg)); /*centers the hand deadcenter and transform valuea to deg*/
+}
+
+.clock .hand.second {
+  width: 3px;
+  height: 45%;
+  background-color: red;
+}
+.clock .hand.minute {
+  width: 7px;
+  height: 40%;
+  background-color: black;
+}
+
+.clock .hand.hour {
+  width: 10px;
+  height: 35%;
+  background-color: black;
+}
+
+.clock::after {
+  /*pseudo element aka the black center circle*/
+  content: "";
+  position: absolute;
+  background-color: black;
+  z-index: 11; /*11>10 so it is over the hands*/
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
